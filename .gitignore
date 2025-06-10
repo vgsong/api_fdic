@@ -2,3 +2,4 @@ _tenv/
 _docs/
 .venv/
 .en
+classes/__pycache__
