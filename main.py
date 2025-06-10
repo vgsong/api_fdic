@@ -1,19 +1,13 @@
-import requests
-import os
 import csv
+import os
 
-from dotenv import load_dotenv
+import requests
 
-class LPA:
+from classes.settings import Settings
+
+class FieldManager(Settings):
     def __init__(self):
-        load_dotenv()
-        self.mdir = os.getenv('MDIR')
-        
-        self.source_dir = os.path.join(self.mdir, 'source')
-        self.fi_filename = 'bank_mapp.csv'
-        self.repfield_filename = 'field_mapp.csv'
-        
-        self.main_url = 'https://banks.data.fdic.gov/api/financials?filters'
+        super().__init__()
         
         self.userinput_cert = ''
         self.userinput_daterange = ''
@@ -45,9 +39,6 @@ class LPA:
                 result.append(x)
         return result
 
-
-
-
     def lookup_fi_by_cert(self):
         userinput_cert = input('Please enter cert number for FI lookup\n')
         for x in self.ficert_list:
@@ -66,10 +57,11 @@ class LPA:
         return
 
 def main():
-    lpa = LPA()
+    fm = FieldManager()
     # lpa.load_fi_data()
     # lpa.lookup_fi_by_cert()
-    lpa.load_fi_field_data()
+    fm.load_fi_field_data()
+    fm.
     
 
 if __name__ == '__main__':
