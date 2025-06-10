@@ -1,8 +1,6 @@
 import csv
 import os
-
 import requests
-
 from classes.settings import Settings
 
 class FieldManager(Settings):
@@ -11,7 +9,7 @@ class FieldManager(Settings):
         
         self.userinput_cert = ''
         self.userinput_daterange = ''
-        self.ficert_list = self.load_fi_data()
+        self.ficert_list = self.load_bank_mapp()
     
         # self.url = ('https://banks.data.fdic.gov/api/financials?filters=ACTIVE:1 AND !(BKCLASS:NC) AND REPDTE:20220930&CERT=14' 
         #             'fields=CERT,RSSDHCR,NAMEFULL,CITY,STALP,ZIP,REPDTE,BKCLASS,NAMEHCR,OFFDOM,SPECGRP,SUBCHAPS,ESTYMD,INSDATE,EFFDATE,MUTUAL,PARCERT,TRUST,REGAGNT,INSAGNT1,FDICDBS,FDICSUPV,FLDOFF,FED,OCCDIST,OTSREGNM,OFFOA,CB,OBSDIR,NACDIR,CTDERGTY,CTDERBEN,RT,RTNVS,RTFFC,RTWOC,RTPOC,FX,FXNVS,FXFFC,FXSPOT,FXWOC,FXPOC,EDCM,OTHNVS,OTHFFC,OTHWOC,OTHPOC,UC,UCLOC,UCCRCD,UCCOMRE,UCCOMRES,UCCOMREU,UCSC,UCOTHER,UCOVER1,SCLENT,OTHOFFBS,PARTCONV,LOCFPSB,LOCFPSBK,LOCFSB,LOCFSBK,LOCPSB,LOCPSBK,LOCCOM&'
@@ -21,7 +19,8 @@ class FieldManager(Settings):
         # response = requests.get(self.url)
         # print(response.status_code)
         
-    def load_fi_data(self):
+    def load_bank_mapp(self):
+        # loads source/bank_mapp
         csv_mdir = os.path.join(self.source_dir, self.fi_filename)
         result = list()
         with open(csv_mdir, 'r', encoding='utf-8') as cf:
@@ -60,9 +59,7 @@ def main():
     fm = FieldManager()
     # lpa.load_fi_data()
     # lpa.lookup_fi_by_cert()
-    fm.load_fi_field_data()
-    fm.
-    
+
 
 if __name__ == '__main__':
     main()
