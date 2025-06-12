@@ -6,6 +6,7 @@ class Settings:
         load_dotenv()
         self.mdir = os.getenv('MDIR')
         self.source_dir = os.path.join(self.mdir, 'source')
+        self.output_dir = os.path.join(self.mdir, 'output')
         self.fi_filename = 'bank_mapp.csv'
         self.repfield_filename = 'field_mapp.csv'
         

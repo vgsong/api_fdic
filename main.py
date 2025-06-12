@@ -25,16 +25,6 @@ class FieldManager(Settings):
                        'sort_order':'[DESC]',
                        }
         
-        
-        
-        # self.url = ('https://banks.data.fdic.gov/api/financials?filters=ACTIVE:1 AND !(BKCLASS:NC) AND REPDTE:20220930&CERT=14' 
-        #             'fields=CERT,RSSDHCR,NAMEFULL,CITY,STALP,ZIP,REPDTE,BKCLASS,NAMEHCR,OFFDOM,SPECGRP,SUBCHAPS,ESTYMD,INSDATE,EFFDATE,MUTUAL,PARCERT,TRUST,REGAGNT,INSAGNT1,FDICDBS,FDICSUPV,FLDOFF,FED,OCCDIST,OTSREGNM,OFFOA,CB,OBSDIR,NACDIR,CTDERGTY,CTDERBEN,RT,RTNVS,RTFFC,RTWOC,RTPOC,FX,FXNVS,FXFFC,FXSPOT,FXWOC,FXPOC,EDCM,OTHNVS,OTHFFC,OTHWOC,OTHPOC,UC,UCLOC,UCCRCD,UCCOMRE,UCCOMRES,UCCOMREU,UCSC,UCOTHER,UCOVER1,SCLENT,OTHOFFBS,PARTCONV,LOCFPSB,LOCFPSBK,LOCFSB,LOCFSBK,LOCPSB,LOCPSBK,LOCCOM&'
-        #             'sort_by=REPDTE&sort_order=DESC'
-        #             )
-
-        # response = requests.get(self.url)
-        # print(response.status_code)
-        
 
     def load_bank_mapp(self):
         # loads source/bank_mapp.csv
@@ -96,18 +86,23 @@ class FieldManager(Settings):
         return
 
     def get_data(self):
+        
+        params = {}
+        
         response = requests.get(self.main_url, params=self.params)
         time.sleep(3)
-        print(response.url)
-        
+        print(response.status_code)
+        if response.status_code == 200:
+            print('status code [200]')
+        else:
+            print('unable to fetch data')
         return
+
 
 def main():
     fm = FieldManager()
-    # fm.load_field_mapp()
-    # fm.lookup_fi()
-    # print(fm)
-    # print(x for x in str(fm))
+    fm.get_data()
+    
 if __name__ == '__main__':
     main()
     
