@@ -131,7 +131,6 @@ class MainMenu(FieldManager):
                 print('Please enter valid index number\n')
 
         
-        
 def main():
     main_menu = MainMenu()
     main_menu.start_menu()

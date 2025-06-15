@@ -20,9 +20,7 @@ class Settings:
 class FieldManager(Settings):
     def __init__(self):
         super().__init__()
-        self.ficert_list = self.load_bank_mapp()  # loads code numbers for FDIC banks
-        self.fireport_list = self.load_field_mapp()  # loads field mapping for request
-        
+
     def load_bank_mapp(self):
         # loads source/bank_mapp.csv
         csv_mdir = os.path.join(self.source_dir, self.fi_filename)
