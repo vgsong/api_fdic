@@ -48,11 +48,10 @@ class MainMenu(FieldManager):
             while True:
                 try:
                     user_input = input('\nPlease enter YYYYMMDD date or\n ' \
-                                       'YYYYMMDDtoYYYYMMDD for date range:\n' \
-                                       'Ex: 20220930\n'
+                                       'Ex: enter 20220930 for Nov 30th 2022\n'
                                        )
                                      
-                    if re.match(r'20\d{2}\d{2}\d{2}|20\d{2}\d{2}\d{2}to20\d{2}\d{2}\d{2}', user_input) is None:
+                    if re.match(r'20\d{2}\d{2}\d{2}', user_input) is None:
                         raise ValueError('Please enter date in correct format!')
                     else:
                         return user_input
