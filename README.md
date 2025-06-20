@@ -18,3 +18,7 @@ eventually into PYQt05
 
 
 
+1 - 'GETDATA'       - get user input and GET api call from FDIC  
+2 - 'LOOKUPCERT'    - looks up bank cert number  
+9 - 'OPENDIR'       - current opens main root dir  (based on env var)  
+0 - 'QUIT'          - exit  
