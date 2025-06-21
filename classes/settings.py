@@ -16,6 +16,7 @@ class Settings:
         self.output_dir = os.path.join(self.mdir, 'output')
         self.fi_filename = 'bank_mapp.csv'
         self.repfield_filename = 'field_mapp.csv'
+        self.report_filename = 'report_mapp.csv'
         
 class FieldManager(Settings):
     def __init__(self):
@@ -51,3 +52,19 @@ class FieldManager(Settings):
             fresult[x] = y
         
         return fresult
+
+    def load_report_mapp(self):
+        csv_mdir = os.path.join(self.source_dir, self.report_filename)
+        result = []
+        with open(csv_mdir, 'r', encoding='utf-8') as cf:
+            data = cf.readlines()
+            for x in data[1:]:
+                result.append(list(x.strip().split(',')))
+        return result
+                
+def main():
+    fm = FieldManager()
+    fm.load_report_mapp()
+
+if __name__ =='__main__':
+    main()

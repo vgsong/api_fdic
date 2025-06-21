@@ -13,15 +13,21 @@ class MainMenu(FieldManager):
         
         self.main_url = 'https://banks.data.fdic.gov/api/financials' 
         
-        self.main_menu = {1:['GETDATA', self.get_data],
+        self.main_menu = {1:['REPORTS', self.select_report],
                           2:['LOOKUPCERT', self.lookup_fi],
+                          3:['GETDATA', self.get_data],
                           9:['OPENDIR', self.open_mdir],
                           0:['QUIT', exit],
                           }
         
         self.ficert_list = self.load_bank_mapp()  # loads code numbers for FDIC banks
         self.fireport_list = self.load_field_mapp()  # loads field mapping for request
-        
+    
+    
+    # def select_report(self):
+    #     with open(os.path.join(self.source_dir,))
+    #     return    
+
     def get_data(self):
         
         def get_report_name():
