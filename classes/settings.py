@@ -64,7 +64,6 @@ class FieldManager(Settings):
                 
 def main():
     fm = FieldManager()
-    fm.load_report_mapp()
 
 if __name__ =='__main__':
     main()

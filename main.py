@@ -20,10 +20,12 @@ class MainMenu(FieldManager):
                           0:['QUIT', exit],
                           }
         
+        self.user_selection = {}
+        
         self.ficert_list = self.load_bank_mapp()  # loads code numbers for FDIC banks
         self.fireport_list = self.load_field_mapp()  # loads field mapping for request
-    
-    
+        self.report_list = self.load_report_mapp()  # loads report mapping for report type
+        
     # def select_report(self):
     #     with open(os.path.join(self.source_dir,))
     #     return    
@@ -53,7 +55,7 @@ class MainMenu(FieldManager):
         def get_date_range():
             while True:
                 try:
-                    user_input = input('\nPlease enter YYYYMMDD date or\n ' \
+                    user_input = input('\nPlease enter YYYYMMDD date or\n' \
                                        'Ex: enter 20220930 for Nov 30th 2022\n'
                                        )
                                      
