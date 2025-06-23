@@ -3,7 +3,6 @@ import os
 import requests
 import time
 import re
-import json
 
 from classes.settings import FieldManager
 
@@ -26,9 +25,21 @@ class MainMenu(FieldManager):
         self.fireport_list = self.load_field_mapp()  # loads field mapping for request
         self.report_list = self.load_report_mapp()  # loads report mapping for report type
         
-    # def select_report(self):
-    #     with open(os.path.join(self.source_dir,))
-    #     return    
+    def select_report(self):
+        
+        report_list = self.report_list.copy()
+        
+        print(id(report_list))
+        print(id(self.report_list))
+        
+        
+        while True:
+            print('--- REPORT MENU ---')
+            userinput = input('Select Report\n')
+            
+            
+            
+        return    
 
     def get_data(self):
         
